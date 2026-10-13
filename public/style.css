@@ -1,0 +1,760 @@
+/* ==========================================================================
+   Hyundai Summarecon Bekasi - WhatsApp Style Theme
+   ========================================================================== */
+
+:root {
+  --wa-teal-dark: #008069;
+  --wa-teal-deep: #075E54;
+  --wa-teal-accent: #00a884;
+  --wa-green-light: #25d366;
+  --wa-bg-body: #d1d7db;
+  --wa-chat-bg: #efeae2;
+  --wa-user-bubble: #d9fdd3;
+  --wa-bot-bubble: #ffffff;
+  --wa-text-primary: #111b21;
+  --wa-text-secondary: #667781;
+  --wa-text-muted: #8696a0;
+  --wa-blue-ticks: #53bdeb;
+  --wa-input-bg: #f0f2f5;
+  --wa-border: #e9edef;
+  --wa-header-icon: #ffffff;
+  --wa-chip-bg: #ffffff;
+  --wa-chip-border: #d1d7db;
+  --wa-chip-hover: #f0f2f5;
+  --wa-shadow: 0 4px 20px rgba(11, 20, 26, 0.12);
+  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  background-color: var(--wa-bg-body);
+  color: var(--wa-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* WhatsApp Layout Container */
+.whatsapp-app-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px 0;
+}
+
+@media (max-width: 900px) {
+  .whatsapp-app-layout {
+    padding: 0;
+  }
+}
+
+.wa-chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 920px;
+  height: calc(100vh - 32px);
+  background-color: var(--wa-chat-bg);
+  border-radius: 12px;
+  box-shadow: var(--wa-shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .wa-chat-container {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+.wa-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--wa-teal-dark);
+  color: #ffffff;
+  padding: 10px 16px;
+  height: 64px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.wa-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wa-header-left:hover .wa-contact-name {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.wa-avatar-wrapper {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+.wa-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background-color: #ffffff;
+}
+
+.wa-online-badge {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 12px;
+  height: 12px;
+  background-color: #25d366;
+  border: 2px solid var(--wa-teal-dark);
+  border-radius: 50%;
+}
+
+.wa-contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-contact-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wa-contact-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.wa-verified-badge {
+  display: flex;
+  align-items: center;
+}
+
+.wa-contact-status {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 2px;
+}
+
+.wa-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wa-icon-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.wa-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   Quick Chips (WhatsApp Business Style)
+   ========================================================================== */
+.wa-quick-chips {
+  background-color: #f7f9fa;
+  border-bottom: 1px solid var(--wa-border);
+  padding: 8px 12px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.chips-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chips-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip-item {
+  background-color: var(--wa-chip-bg);
+  border: 1px solid var(--wa-chip-border);
+  color: var(--wa-teal-dark);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chip-item:hover {
+  background-color: var(--wa-teal-dark);
+  color: #ffffff;
+  border-color: var(--wa-teal-dark);
+}
+
+.chip-item:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   Chat Messages Box (#chat-box)
+   ========================================================================== */
+.wa-chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  /* Authentic WhatsApp Doodle Pattern */
+  background-color: #efeae2;
+  background-image: radial-gradient(#d5cdc4 1px, transparent 1px),
+                    radial-gradient(#d5cdc4 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar for chat */
+.wa-chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wa-chat-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wa-chat-box::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* System notice / Encryption */
+.wa-system-notice {
+  align-self: center;
+  background-color: #ffeecd;
+  color: #54656f;
+  font-size: 11.5px;
+  line-height: 1.4;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 80%;
+  margin: 4px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wa-date-divider {
+  align-self: center;
+  margin: 6px 0;
+}
+
+.wa-date-divider span {
+  background-color: #ffffff;
+  color: var(--wa-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  text-transform: uppercase;
+}
+
+/* Message Rows & Bubbles */
+.message-row {
+  display: flex;
+  width: 100%;
+}
+
+.bot-row {
+  justify-content: flex-start;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.message {
+  position: relative;
+  max-width: 78%;
+  padding: 8px 12px 6px 12px;
+  font-size: 14.2px;
+  line-height: 1.45;
+  box-shadow: 0 1px 1px rgba(11, 20, 26, 0.13);
+  word-wrap: break-word;
+  animation: fadeInMsg 0.25s ease-out;
+}
+
+@keyframes fadeInMsg {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bot Message Bubble (Left / White) */
+.message-bot {
+  background-color: var(--wa-bot-bubble);
+  color: var(--wa-text-primary);
+  border-radius: 0px 8px 8px 8px;
+}
+
+/* Bot Bubble Tail */
+.message-bot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-right: 8px solid var(--wa-bot-bubble);
+  border-bottom: 8px solid transparent;
+}
+
+.message-sender-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--wa-teal-dark);
+  margin-bottom: 4px;
+}
+
+/* User Message Bubble (Right / Green) */
+.message-user {
+  background-color: var(--wa-user-bubble);
+  color: var(--wa-text-primary);
+  border-radius: 8px 0px 8px 8px;
+}
+
+/* User Bubble Tail */
+.message-user::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-left: 8px solid var(--wa-user-bubble);
+  border-bottom: 8px solid transparent;
+}
+
+/* Content formatting */
+.message-content {
+  color: var(--wa-text-primary);
+}
+
+.message-content p {
+  margin-bottom: 6px;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-content ul, .message-content ol {
+  margin: 6px 0 6px 18px;
+}
+
+.message-content li {
+  margin-bottom: 3px;
+}
+
+.message-content strong {
+  font-weight: 600;
+  color: #0b141a;
+}
+
+.message-content a {
+  color: #027eb5;
+  text-decoration: underline;
+}
+
+.message-content code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+/* Meta info (Time & Ticks) */
+.message-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 4px;
+  float: right;
+  margin-left: 12px;
+}
+
+.message-time {
+  font-size: 11px;
+  color: var(--wa-text-secondary);
+}
+
+.double-tick {
+  display: inline-flex;
+  align-items: center;
+  color: var(--wa-blue-ticks);
+}
+
+/* Typing Indicator Bubble */
+.typing-bubble {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 14px;
+}
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--wa-text-muted);
+  border-radius: 50%;
+  animation: typingWave 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingWave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-5px);
+    opacity: 1;
+    background-color: var(--wa-teal-dark);
+  }
+}
+
+.typing-text {
+  font-size: 12.5px;
+  color: var(--wa-text-secondary);
+  font-style: italic;
+  margin-left: 6px;
+}
+
+/* ==========================================================================
+   Footer & Input Form (#chat-form, #user-input)
+   ========================================================================== */
+.wa-footer {
+  background-color: var(--wa-input-bg);
+  padding: 8px 12px;
+  z-index: 20;
+}
+
+.wa-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wa-tool-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  color: #54656f;
+  transition: background-color 0.15s ease;
+}
+
+.wa-tool-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.wa-form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+}
+
+#user-input {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  padding: 10px 18px;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: var(--wa-text-primary);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#user-input:focus {
+  border-color: #00a884;
+}
+
+#user-input::placeholder {
+  color: var(--wa-text-muted);
+}
+
+.wa-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--wa-teal-accent);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.wa-send-btn:hover {
+  background-color: var(--wa-teal-dark);
+  transform: scale(1.04);
+}
+
+.wa-send-btn:active {
+  transform: scale(0.96);
+}
+
+.wa-send-btn:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ==========================================================================
+   Dealer Info Modal (WhatsApp Business Profile)
+   ========================================================================== */
+.wa-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 20, 26, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  backdrop-filter: blur(2px);
+}
+
+.wa-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wa-modal-card {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 520px;
+  max-height: 85vh;
+  border-radius: 14px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.wa-modal-overlay.active .wa-modal-card {
+  transform: translateY(0);
+}
+
+.wa-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--wa-border);
+  background-color: var(--wa-teal-dark);
+  color: #ffffff;
+}
+
+.wa-modal-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.wa-modal-close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.wa-modal-body {
+  padding: 20px;
+}
+
+.dealer-photo-box {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.dealer-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dealer-badge-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 128, 105, 0.92);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.dealer-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--wa-text-primary);
+  margin-bottom: 2px;
+}
+
+.dealer-subtitle {
+  font-size: 13px;
+  color: var(--wa-text-secondary);
+  margin-bottom: 18px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.info-icon {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.info-row strong {
+  display: block;
+  color: var(--wa-text-primary);
+  margin-bottom: 2px;
+}
+
+.info-row p {
+  color: var(--wa-text-secondary);
+  margin: 0;
+}
+
+.modal-cta-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-cta-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn-maps {
+  background-color: #e9edef;
+  color: var(--wa-text-primary);
+}
+
+.btn-maps:hover {
+  background-color: #d1d7db;
+}
+
+.btn-wa {
+  background-color: var(--wa-teal-accent);
+  color: #ffffff;
+}
+
+.btn-wa:hover {
+  background-color: var(--wa-teal-dark);
+}

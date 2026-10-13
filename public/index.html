@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Hyundai Summarecon Bekasi - Official Chat Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="whatsapp-app-layout">
+    <!-- Main Chat Container -->
+    <main class="wa-chat-container">
+      
+      <!-- WhatsApp Header -->
+      <header class="wa-header" id="wa-header">
+        <div class="wa-header-left" id="header-profile-btn" title="Lihat profil & info dealer">
+          <div class="wa-avatar-wrapper">
+            <img src="/assets/hyundai_showroom.jpg" alt="Hyundai Summarecon Bekasi" class="wa-avatar" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/44/Hyundai_Motor_Company_logo.svg'">
+            <span class="wa-online-badge"></span>
+          </div>
+          <div class="wa-contact-info">
+            <div class="wa-contact-title">
+              <span class="wa-contact-name">Hyundai Summarecon Bekasi</span>
+              <span class="wa-verified-badge" title="Akun Bisnis Resmi Terverifikasi">
+                <svg viewBox="0 0 18 18" width="16" height="16" fill="none">
+                  <path d="M7.4 1.3a1.5 1.5 0 0 1 2.2 0l.7.7a1.5 1.5 0 0 0 1.2.4h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 0 .4 1.2l.7.7a1.5 1.5 0 0 1 0 2.2l-.7.7a1.5 1.5 0 0 0-.4 1.2v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 0-1.2.4l-.7.7a1.5 1.5 0 0 1-2.2 0l-.7-.7a1.5 1.5 0 0 0-1.2-.4h-1a1.5 1.5 0 0 1-1.5-1.5v-1a1.5 1.5 0 0 0-.4-1.2l-.7-.7a1.5 1.5 0 0 1 0-2.2l.7-.7a1.5 1.5 0 0 0 .4-1.2v-1A1.5 1.5 0 0 1 4.9 2.4h1a1.5 1.5 0 0 0 1.2-.4l.7-.7z" fill="#00A884"/>
+                  <path d="M6 9l2 2 4.5-4.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="wa-contact-status" id="wa-header-status">Akun Bisnis Resmi • Online</div>
+          </div>
+        </div>
+
+        <div class="wa-header-actions">
+          <button type="button" class="wa-icon-btn" id="call-dealer-btn" title="Hubungi Showroom">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+            </svg>
+          </button>
+          <button type="button" class="wa-icon-btn" id="dealer-info-modal-trigger" title="Detail Info Dealer">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+          </button>
+          <button type="button" class="wa-icon-btn" id="clear-chat-btn" title="Bersihkan Percakapan">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Quick Action Chips (WhatsApp Business Style) -->
+      <section class="wa-quick-chips" aria-label="Pertanyaan Cepat">
+        <div class="chips-scroll">
+          <button type="button" class="chip-item" data-prompt="Di mana alamat lengkap Hyundai Summarecon Bekasi dan jam operasionalnya?">
+            📍 Lokasi & Jam Buka
+          </button>
+          <button type="button" class="chip-item" data-prompt="Apa saja daftar mobil listrik (EV) Hyundai dan estimasi harganya?">
+            ⚡ Mobil Listrik (EV)
+          </button>
+          <button type="button" class="chip-item" data-prompt="Jelaskan spesifikasi dan harga Hyundai All New Santa Fe.">
+            🚙 All New Santa Fe
+          </button>
+          <button type="button" class="chip-item" data-prompt="Bagaimana perbandingan Hyundai Stargazer dan Stargazer X untuk mobil keluarga?">
+            🚗 Stargazer & Stargazer X
+          </button>
+          <button type="button" class="chip-item" data-prompt="Bagaimana cara booking test drive di Hyundai Summarecon Bekasi?">
+            📅 Booking Test Drive
+          </button>
+          <button type="button" class="chip-item" data-prompt="Informasikan jadwal bengkel resmi dan biaya servis berkala di dealer Anda.">
+            🔧 Bengkel & Servis
+          </button>
+          <button type="button" class="chip-item" data-prompt="Bagaimana syarat simulasi kredit dan promo DP ringan saat ini?">
+            💰 Promo & Kredit
+          </button>
+        </div>
+      </section>
+
+      <!-- Chat Box Messages Area (ID wajib sesuai slide materi: #chat-box) -->
+      <div id="chat-box" class="wa-chat-box">
+        
+        <!-- Encryption Notice (Authentic WhatsApp) -->
+        <div class="wa-system-notice">
+          <span class="notice-icon">🔒</span>
+          <span>Pesan dalam obrolan ini terhubung langsung dengan Layanan Virtual Resmi Hyundai Summarecon Bekasi didukung Google Gemini.</span>
+        </div>
+
+        <!-- Date Badge -->
+        <div class="wa-date-divider">
+          <span>HARI INI</span>
+        </div>
+
+        <!-- Initial Professional Welcome Message from Bot -->
+        <div class="message-row bot-row">
+          <div class="message message-bot">
+            <div class="message-sender-name">Hyundai Summarecon Bekasi</div>
+            <div class="message-content">
+              Selamat datang di Layanan Informasi Pelanggan Resmi <strong>Hyundai Summarecon Bekasi</strong>.<br><br>
+              Kami siap melayani kebutuhan informasi Anda seputar:
+              <ul>
+                <li>Spesifikasi teknis dan estimasi harga OTR kendaraan Hyundai (Creta, Stargazer, Santa Fe, Palisade, Kona EV, Ioniq 5/6, Staria).</li>
+                <li>Penjadwalan <em>Test Drive</em> unit di dealer atau layanan ke tempat Anda.</li>
+                <li>Layanan bengkel resmi, servis berkala, dan pengisian daya <em>EV Fast Charging</em>.</li>
+                <li>Konsultasi pembiayaan, promo, serta tukar tambah (<em>Trade-In</em>).</li>
+              </ul>
+              Silakan sampaikan pertanyaan Anda.
+            </div>
+            <div class="message-meta">
+              <span class="message-time" id="initial-bot-time">08:00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chat Input Form (ID wajib sesuai slide materi: #chat-form & #user-input) -->
+      <footer class="wa-footer">
+        <div class="wa-input-container">
+          
+          <button type="button" class="wa-tool-btn" id="emoji-btn" title="Emoji">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#54656f">
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-3.5-9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm7 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+            </svg>
+          </button>
+          
+          <button type="button" class="wa-tool-btn" id="attach-btn" title="Lampirkan Dokumen / Lokasi">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#54656f">
+              <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5a2.5 2.5 0 015 0v10.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5V6H9v9.5a3 3 0 006 0V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/>
+            </svg>
+          </button>
+
+          <form id="chat-form" class="wa-form" autocomplete="off">
+            <input 
+              type="text" 
+              id="user-input" 
+              placeholder="Ketik pesan..." 
+              required
+              aria-label="Pesan Anda"
+            />
+            <button type="submit" id="send-btn" class="wa-send-btn" title="Kirim Pesan">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+              <span class="sr-only">Send</span>
+            </button>
+          </form>
+
+        </div>
+      </footer>
+
+    </main>
+
+    <!-- Dealer Info Modal / Drawer (WhatsApp Business Profile Card) -->
+    <div class="wa-modal-overlay" id="dealer-modal" aria-hidden="true">
+      <div class="wa-modal-card">
+        <div class="wa-modal-header">
+          <h3>Profil Dealer Resmi</h3>
+          <button type="button" class="wa-modal-close" id="modal-close-btn">&times;</button>
+        </div>
+        <div class="wa-modal-body">
+          <div class="dealer-photo-box">
+            <img src="/assets/hyundai_showroom.jpg" alt="Showroom Hyundai Summarecon Bekasi" class="dealer-photo">
+            <div class="dealer-badge-tag">Dealer Resmi 3S (Sales, Service, Spare Parts)</div>
+          </div>
+          
+          <h2 class="dealer-title">Hyundai Summarecon Bekasi</h2>
+          <p class="dealer-subtitle">PT Auto Maju Bersama • Authorized Hyundai Dealership</p>
+
+          <div class="info-group">
+            <div class="info-row">
+              <span class="info-icon">📍</span>
+              <div>
+                <strong>Alamat Dealer:</strong>
+                <p>Jl. Bulevar Ahmad Yani, Blok VA No. 1-2, Kawasan Sentra Summarecon Bekasi, Marga Mulya, Bekasi Utara, Kota Bekasi 17142</p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <span class="info-icon">🕒</span>
+              <div>
+                <strong>Jam Buka Showroom:</strong>
+                <p>Senin – Sabtu: 08.30 – 19.00 WIB<br>Minggu & Libur: 09.00 – 17.00 WIB</p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <span class="info-icon">🔧</span>
+              <div>
+                <strong>Jam Buka Bengkel Resmi:</strong>
+                <p>Senin – Jumat: 08.00 – 16.30 WIB<br>Sabtu: 08.00 – 15.00 WIB (Minggu Tutup)</p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <span class="info-icon">📞</span>
+              <div>
+                <strong>Kontak Resmi:</strong>
+                <p>Hotline Showroom: <a href="tel:02129578900">(021) 2957-8900</a><br>
+                WhatsApp Business: <a href="https://wa.me/6281288997700" target="_blank">+62 812-8899-7700</a></p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <span class="info-icon">⚡</span>
+              <div>
+                <strong>Fasilitas Unggulan:</strong>
+                <p>EV Ultra Fast Charging Station, Lounge Eksekutif, 8 Stall Servis, Unit Test Drive Lengkap.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-cta-buttons">
+            <a href="https://maps.google.com/?q=Hyundai+Summarecon+Bekasi" target="_blank" class="btn-maps">
+              Buka Google Maps
+            </a>
+            <a href="https://wa.me/6281288997700?text=Halo%20Hyundai%20Summarecon%20Bekasi,%20saya%20ingin%20berkonsultasi" target="_blank" class="btn-wa">
+              Chat Sales via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

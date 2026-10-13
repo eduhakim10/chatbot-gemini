@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "hacktiv8-gemini-chatbot-session-3",
+    "name": "Hacktiv8 Sesi 3 - Hyundai Summarecon Bekasi Chatbot API",
+    "description": "Collection Postman resmi sesuai materi Hacktiv8 Sesi 3 (Pembuatan Chatbot berbasis Gemini AI Model). Dilengkapi endpoint multi-turn /api/chat, informasi dealer, dan health check.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Chatbot Sesi 3 (POST) - /api/chat (Slide Hal 29 & 31)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"conversation\": [\n    {\n      \"role\": \"user\",\n      \"text\": \"Di mana alamat dealer Hyundai Summarecon Bekasi dan jam buka bengkel resminya?\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/chat",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "chat"]
+        },
+        "description": "Endpoint utama materi Sesi 3: Mengirim conversation array ke Gemini flash-lite dan menerima respons profesional customer service Hyundai."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Chatbot Sesi 3 (POST) - Tanya Mobil Listrik & Kona EV",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"conversation\": [\n    {\n      \"role\": \"user\",\n      \"text\": \"Berapa estimasi harga Hyundai All New Kona Electric dan apa saja keunggulan baterainya?\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/chat",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "chat"]
+        },
+        "description": "Konsultasi produk EV Hyundai Summarecon Bekasi."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Info Dealer Hyundai (GET) - /api/dealer-info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/dealer-info",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "dealer-info"]
+        },
+        "description": "Mendapatkan profil resmi, alamat, jam kerja, nomor hotline, dan model populer Hyundai Summarecon Bekasi."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Health Check (GET) - /api/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "health"]
+        },
+        "description": "Mengecek status ketersediaan model dan service chatbot."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Sesi 2 Fallback (POST) - /generate-text",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"Explain why the sky is blue in simple terms.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/generate-text",
+          "host": ["{{baseUrl}}"],
+          "path": ["generate-text"]
+        },
+        "description": "Endpoint materi Sesi 2 (tetap didukung)."
+      },
+      "response": []
+    }
+  ]
+}
