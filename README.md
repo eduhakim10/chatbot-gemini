@@ -1,6 +1,6 @@
-# 🚗 Hyundai Summarecon Bekasi - AI Chatbot Assistant (Hacktiv8 Sesi 3)
+# 🚗 Hyundai Summarecon Bekasi - AI Chatbot Assistant
 
-Aplikasi Chatbot Resmi **Hyundai Summarecon Bekasi** yang dibangun berbasis **Google Gemini AI (Flash-Lite)** menggunakan **Node.js, Express, dan Vanilla JavaScript**, sesuai dengan materi kurikulum **Hacktiv8: Pembuatan Chatbot Berbasis Gemini AI Model (Sesi 3)**.
+Aplikasi Chatbot Resmi **Hyundai Summarecon Bekasi** yang dibangun berbasis **Google Gemini AI (Flash-Lite)** menggunakan **Node.js, Express, dan Vanilla JavaScript**.
 
 Tampilan antarmuka (UI) dirancang dengan tema autentik **WhatsApp Business**, lengkap dengan header verifikasi resmi, bubble percakapan WhatsApp dengan indikator centang dua biru (`✓✓`), balasan profesional terstruktur, quick-action chips, serta modal profil dealer resmi.
 
@@ -8,7 +8,7 @@ Tampilan antarmuka (UI) dirancang dengan tema autentik **WhatsApp Business**, le
 
 ## 🌟 Fitur Utama
 
-1. **Sesuai Materi Hacktiv8 Sesi 3**:
+1. **Spesifikasi:
    - Struktur folder sesuai slide: backend Express menyajikan file frontend statis dari folder `public/` (`index.html`, `style.css`, `script.js`).
    - Endpoint utama: `POST /api/chat` menerima `{ conversation: [...] }` dan mengembalikan `{ result: "..." }`.
    - Menggunakan SDK resmi `@google/genai` dengan konfigurasi `systemInstruction` dan `temperature`.
@@ -85,7 +85,7 @@ Buka tautan di atas melalui browser (Google Chrome / Safari) untuk mulai berinte
 
 ---
 
-## 📮 Pengujian API via Postman (Slide Hal 29 & 31)
+## 📮 Pengujian API via Postman 
 
 Import file [`Gemini_Chatbot.postman_collection.json`](file:///Users/eduarifrahmanhakim/.gemini/antigravity-ide/scratch/gemini-chatbot/Gemini_Chatbot.postman_collection.json) ke aplikasi Postman.
 
