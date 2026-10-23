@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "hacktiv8-gemini-chatbot-session-3",
-    "name": "Hacktiv8 Sesi 3 - Hyundai Summarecon Bekasi Chatbot API",
-    "description": "Collection Postman resmi sesuai materi Hacktiv8 Sesi 3 (Pembuatan Chatbot berbasis Gemini AI Model). Dilengkapi endpoint multi-turn /api/chat, informasi dealer, dan health check.",
+    "_postman_id": "hyundai-gemini-chatbot-api",
+    "name": "Hyundai Summarecon Bekasi Chatbot API",
+    "description": "Collection Postman resmi untuk Chatbot Dealer Hyundai Summarecon Bekasi berbasis Gemini AI Model. Dilengkapi endpoint multi-turn /api/chat, informasi dealer, dan health check.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -14,7 +14,7 @@
   ],
   "item": [
     {
-      "name": "1. Chatbot Sesi 3 (POST) - /api/chat (Slide Hal 29 & 31)",
+      "name": "1. Kirim Chat (POST) - /api/chat",
       "request": {
         "method": "POST",
         "header": [
@@ -32,12 +32,12 @@
           "host": ["{{baseUrl}}"],
           "path": ["api", "chat"]
         },
-        "description": "Endpoint utama materi Sesi 3: Mengirim conversation array ke Gemini 1.5 Flash dan menerima respons profesional customer service Hyundai."
+        "description": "Endpoint utama: Mengirim conversation array ke Gemini 1.5 Flash dan menerima respons profesional customer service Hyundai."
       },
       "response": []
     },
     {
-      "name": "2. Chatbot Sesi 3 (POST) - Tanya Mobil Listrik & Kona EV",
+      "name": "2. Tanya Mobil Listrik & Kona EV (POST)",
       "request": {
         "method": "POST",
         "header": [
@@ -88,7 +88,7 @@
       "response": []
     },
     {
-      "name": "5. Sesi 2 Fallback (POST) - /generate-text",
+      "name": "5. Single Text Generation (POST) - /generate-text",
       "request": {
         "method": "POST",
         "header": [
@@ -106,7 +106,7 @@
           "host": ["{{baseUrl}}"],
           "path": ["generate-text"]
         },
-        "description": "Endpoint materi Sesi 2 (tetap didukung)."
+        "description": "Endpoint alternatif untuk pengujian single prompt generation."
       },
       "response": []
     }

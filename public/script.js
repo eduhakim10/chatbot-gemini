@@ -1,10 +1,10 @@
 /**
  * Hyundai Summarecon Bekasi - Chatbot Frontend Logic
- * Sesuai materi Hacktiv8 Sesi 3 (Node.js + Express + Gemini AI)
+ * Client WhatsApp UI (Node.js + Express + Gemini AI)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // DOM Elements sesuai materi slide hal 37 & 40
+  // DOM Elements
   const form = document.getElementById('chat-form');
   const input = document.getElementById('user-input');
   const chatBox = document.getElementById('chat-box');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Menampilkan pesan "Thinking..." bot sementara (Sesuai slide 37 & 42)
+   * Menampilkan animasi indikator "Thinking..." bot sementara
    */
   function createThinkingMessage() {
     const row = document.createElement('div');
@@ -197,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Mengirim pesan user ke API backend (/api/chat)
-   * Sesuai alur pada Slide 29, 37, 39, 42
    */
   async function handleSendMessage(messageText) {
     const userMessage = messageText || input.value.trim();
@@ -219,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thinkingMsg = createThinkingMessage();
 
     try {
-      // 4. Kirim POST request ke /api/chat sesuai spek slide materi
+      // 4. Kirim POST request ke /api/chat
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -270,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Event Listener Form Submit (Sesuai slide 37 & 40)
+  // Event Listener Form Submit
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     handleSendMessage();

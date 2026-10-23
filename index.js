@@ -295,7 +295,7 @@ function validateChatPayload(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
- * Endpoint Utama Sesuai Materi Hacktiv8 Sesi 3:
+ * Endpoint Utama Chatbot:
  * POST /api/chat
  * Body: { conversation: [ { role: 'user', text: '...' }, { role: 'model', text: '...' } ] }
  * Output: { result: '...' }
@@ -374,7 +374,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Fallback endpoints dari Sesi 2 (Dilengkapi Validasi & Rate Limiting)
+// Endpoint Tambahan Single Text Prompt (Dilengkapi Validasi & Rate Limiting)
 app.post('/generate-text', chatRateLimiter, async (req, res) => {
   const { prompt } = req.body || {};
   const cleanPrompt = sanitizeText(prompt);

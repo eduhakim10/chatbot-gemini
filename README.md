@@ -5,7 +5,7 @@
 [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-1.5%20Flash-blue.svg)](https://aistudio.google.com/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey.svg)](https://expressjs.com/)
 
-Aplikasi Chatbot Representatif Resmi **Hyundai Summarecon Bekasi** yang dibangun menggunakan **Google Gemini AI (`gemini-1.5-flash`)**, **Node.js**, **Express**, dan **Vanilla JavaScript**. Proyek ini disusun berdasarkan materi kurikulum **Hacktiv8: Pembuatan Chatbot Berbasis Gemini AI Model (Sesi 3)** dan telah disempurnakan dengan antarmuka autentik **WhatsApp Business Web & Mobile**.
+Aplikasi Chatbot Representatif Resmi **Hyundai Summarecon Bekasi** yang dibangun menggunakan **Google Gemini AI (`gemini-1.5-flash`)**, **Node.js**, **Express**, dan **Vanilla JavaScript**. Aplikasi ini dilengkapi antarmuka autentik bertema **WhatsApp Business Web & Mobile**, lengkap dengan header verifikasi resmi, bubble percakapan WhatsApp dengan indikator centang dua biru (`✓✓`), balasan profesional terstruktur, quick-action chips, serta modal profil dealer resmi.
 
 Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** yang ingin belajar cara mengintegrasikan Large Language Model (LLM) ke dalam aplikasi web nyata, mengelola *System Instruction*, menerapkan *Guardrails*, dan menguji API via Postman.
 
@@ -13,11 +13,11 @@ Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** ya
 
 ## 🌟 Fitur Utama
 
-1. **Sesuai Standar Kurikulum Hacktiv8 Sesi 3**:
-   - Struktur folder: Backend Express melayani antarmuka statis dari folder `public/` (`index.html`, `style.css`, `script.js`).
-   - Endpoint utama: `POST /api/chat` menerima `{ conversation: [...] }` dan mengembalikan `{ result: "..." }`.
+1. **Arsitektur Chatbot & REST API Modern**:
+   - Struktur modular: Backend Express melayani antarmuka statis dari folder `public/` (`index.html`, `style.css`, `script.js`).
+   - Endpoint utama: `POST /api/chat` menerima multi-turn context payload `{ conversation: [...] }` dan mengembalikan `{ result: "..." }`.
    - Menggunakan SDK resmi Google Gen AI (`@google/genai`) dengan parameter `systemInstruction` dan `temperature`.
-   - Mempertahankan ID elemen wajib materi: `#chat-box`, `#chat-form`, dan `#user-input`.
+   - Integrasi elemen UI yang bersih dan responsif: `#chat-box`, `#chat-form`, dan `#user-input`.
 
 2. **Konteks Spesifik Dealer Hyundai Summarecon Bekasi**:
    - **Alamat Resmi**: Jl. Bulevar Ahmad Yani, Blok VA No. 1-2, Kawasan Sentra Summarecon Bekasi, Kota Bekasi 17142.
@@ -183,7 +183,7 @@ Proyek ini telah dilengkapi file koleksi Postman siap pakai: [**`Gemini_Chatbot.
 1. Buka aplikasi **Postman**.
 2. Klik tombol **Import** pada pojok kiri atas jendela Postman.
 3. Seret (*drag and drop*) file [`Gemini_Chatbot.postman_collection.json`](./Gemini_Chatbot.postman_collection.json) dari folder proyek Anda, atau klik **Files** dan pilih file tersebut.
-4. Koleksi *"Hacktiv8 Sesi 3 - Hyundai Summarecon Bekasi Chatbot API"* akan muncul di panel koleksi sebelah kiri.
+4. Koleksi *"Hyundai Summarecon Bekasi Chatbot API"* akan muncul di panel koleksi sebelah kiri.
 
 ### Contoh Request Utama (`POST /api/chat`)
 - **Method**: `POST`
@@ -328,6 +328,6 @@ Proyek ini dirilis di bawah lisensi terbuka [**MIT License**](./LICENSE). Anda b
 ---
 
 <p align="center">
-  Dibuat dengan ❤️ untuk pembelajaran komunitas pengembang & peserta <b>Hacktiv8 Sesi 3</b>.<br>
+  Dibuat dengan ❤️ untuk pembelajaran komunitas pengembang & programmer pemula.<br>
   <i>Inovasi Otomotif bersama Hyundai Motors Indonesia & Google Gemini AI.</i>
 </p>

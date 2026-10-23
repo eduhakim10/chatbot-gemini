@@ -13,7 +13,8 @@
     "express",
     "google-genai",
     "multer",
-    "hacktiv8"
+    "chatbot",
+    "whatsapp-ui"
   ],
   "author": "",
   "license": "MIT",
