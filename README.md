@@ -2,10 +2,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
-[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-1.5%20Flash-blue.svg)](https://aistudio.google.com/)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-3.5%20Flash%20Lite-blue.svg)](https://aistudio.google.com/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey.svg)](https://expressjs.com/)
 
-Aplikasi Chatbot Representatif Resmi **Hyundai Summarecon Bekasi** yang dibangun menggunakan **Google Gemini AI (`gemini-1.5-flash`)**, **Node.js**, **Express**, dan **Vanilla JavaScript**. Aplikasi ini dilengkapi antarmuka autentik bertema **WhatsApp Business Web & Mobile**, lengkap dengan header verifikasi resmi, bubble percakapan WhatsApp dengan indikator centang dua biru (`✓✓`), balasan profesional terstruktur, quick-action chips, serta modal profil dealer resmi.
+Aplikasi Chatbot Representatif Resmi **Hyundai Summarecon Bekasi** yang dibangun menggunakan **Google Gemini AI (`gemini-3.5-flash-lite`)**, **Node.js**, **Express**, dan **Vanilla JavaScript**. Aplikasi ini dilengkapi antarmuka autentik bertema **WhatsApp Business Web & Mobile**, lengkap dengan header verifikasi resmi, bubble percakapan WhatsApp dengan indikator centang dua biru (`✓✓`), balasan profesional terstruktur, quick-action chips, serta modal profil dealer resmi.
 
 Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** yang ingin belajar cara mengintegrasikan Large Language Model (LLM) ke dalam aplikasi web nyata, mengelola *System Instruction*, menerapkan *Guardrails*, dan menguji API via Postman.
 
@@ -28,7 +28,7 @@ Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** ya
    - **Layanan Purna Jual & Garansi**: Garansi baterai EV 8 tahun / 160.000 KM, garansi kendaraan 3–4 tahun, gratis jasa servis 5 tahun, fasilitas EV Ultra Fast Charger, serta layanan booking test drive.
 
 3. **Gaya Komunikasi & Guardrail (Batasan)**:
-   - **Model AI**: `gemini-1.5-flash` (cepat, hemat kuota, efisien, dan responsif).
+   - **Model AI**: `gemini-3.5-flash-lite` (cepat, hemat kuota, efisien, dan responsif).
    - **Tone of Voice**: Profesional, formal, terstruktur, santun, dan objektif (standar perwakilan resmi Hyundai Motors Indonesia, tanpa bahasa gaul/slang).
    - **Guardrail Konteks**: Menolak secara sopan dan profesional setiap pertanyaan yang berada di luar topik dealer Hyundai.
 
@@ -129,8 +129,8 @@ PORT=3000
 # Dapatkan API Key gratis di: https://aistudio.google.com/app/apikey
 GEMINI_API_KEY=MASUKKAN_GEMINI_API_KEY_ANDA_DI_SINI
 
-# Model Gemini yang digunakan (default: gemini-1.5-flash)
-GEMINI_MODEL=gemini-1.5-flash
+# Model Gemini yang digunakan (default: gemini-3.5-flash-lite)
+GEMINI_MODEL=gemini-3.5-flash-lite
 ```
 
 > [!TIP]
@@ -159,7 +159,7 @@ Jika berhasil, terminal akan menampilkan:
 ```text
 ====================================================
 🛡️ Hyundai Summarecon Bekasi Chatbot Server Aktif
-🤖 Model Gemini: gemini-1.5-flash
+🤖 Model Gemini: gemini-3.5-flash-lite
 🔒 Mode Keamanan: Rate Limiter & Guardrails Aktif
 🌐 URL Aplikasi: http://localhost:3000
 💬 Endpoint Chat: POST http://localhost:3000/api/chat
@@ -298,13 +298,13 @@ Berikut rangkuman solusi kendala yang sering dialami oleh pemrogram pemula:
   3. Pastikan tidak ada spasi tambahan di depan atau di belakang kunci API.
 
 ### 2. Error: `models/... is not found for API version` atau Status `404`
-- **Penyebab**: Nama model pada `GEMINI_MODEL` di file `.env` salah ketik atau menggunakan nama model yang belum tersedia/sudah dipensiunkan oleh Google.
+- **Penyebab**: Nama model pada `GEMINI_MODEL` di file `.env` salah ketik atau menggunakan nama model yang sudah dipensiunkan oleh Google pada endpoint API akun Anda.
 - **Solusi**:
-  Gunakan nama model stabil resmi yang didukung:
+  Gunakan nama model stabil terbaru yang didukung oleh SDK `@google/genai`:
   ```env
-  GEMINI_MODEL=gemini-1.5-flash
+  GEMINI_MODEL=gemini-3.5-flash-lite
   ```
-  Opsi model lain yang valid: `gemini-2.0-flash` atau `gemini-1.5-pro`.
+  Opsi model lain yang valid: `gemini-3.8-flash` atau `gemini-1.5-flash` (tergantung versi API akun Google AI Studio Anda). Kode backend server juga telah dilengkapi *automatic fallback* ke `gemini-3.5-flash-lite` jika model yang Anda tentukan mengalami status 404.
 
 ### 3. Error: `RESOURCE_EXHAUSTED` atau Status `429 Too Many Requests`
 - **Penyebab**: Melebihi batasan kuota gratis (Free Tier Rate Limit) dari Google Gemini API (umumnya 15 permintaan per menit / RPM).

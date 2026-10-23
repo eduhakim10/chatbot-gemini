@@ -42,8 +42,28 @@ const upload = multer({
 // Inisialisasi SDK Gemini
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY || '' });
 
-// Konfigurasi Model (Default: gemini-1.5-flash, opsi lain: gemini-2.0-flash, gemini-1.5-pro)
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+// Konfigurasi Model (Default: gemini-3.5-flash-lite)
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+const FALLBACK_MODEL = 'gemini-3.5-flash-lite';
+
+/**
+ * Wrapper pemanggilan Gemini generateContent dengan fallback otomatis
+ * jika model yang ditentukan pada .env tidak tersedia (404/NOT_FOUND).
+ */
+async function generateContentWithFallback(params) {
+  try {
+    return await ai.models.generateContent(params);
+  } catch (error) {
+    if (params.model !== FALLBACK_MODEL && (error.status === 404 || (error.message && error.message.includes('NOT_FOUND')))) {
+      console.warn(`[Gemini Model Warning]: Model "${params.model}" tidak tersedia di endpoint API ini. Beralih otomatis ke "${FALLBACK_MODEL}".`);
+      return await ai.models.generateContent({
+        ...params,
+        model: FALLBACK_MODEL
+      });
+    }
+    throw error;
+  }
+}
 
 // System Instruction untuk Chatbot Hyundai Summarecon Bekasi
 // Karakter: Profesional, formal, lugas, santun, tidak friendly/casual/bercanda berlebihan
@@ -302,7 +322,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.post('/api/chat', chatRateLimiter, validateChatPayload, async (req, res) => {
   try {
-    const response = await ai.models.generateContent({
+    const response = await generateContentWithFallback({
       model: GEMINI_MODEL,
       contents: req.validatedContents,
       config: {
@@ -388,7 +408,7 @@ app.post('/generate-text', chatRateLimiter, async (req, res) => {
   }
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await generateContentWithFallback({
       model: GEMINI_MODEL,
       contents: cleanPrompt
     });
@@ -408,7 +428,7 @@ app.post('/generate-from-image', uploadRateLimiter, upload.single('image'), asyn
   }
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await generateContentWithFallback({
       model: GEMINI_MODEL,
       contents: [
         { text: cleanPrompt || 'Deskripsikan gambar ini secara profesional', type: 'text' },

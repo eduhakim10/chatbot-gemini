@@ -21,7 +21,7 @@ function getApiKey() {
  * Mendapatkan model Gemini yang dipilih
  */
 function getModelName() {
-  return process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+  return process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 }
 
 /**
