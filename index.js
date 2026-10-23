@@ -42,8 +42,8 @@ const upload = multer({
 // Inisialisasi SDK Gemini
 const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY || '' });
 
-// Konfigurasi Model (Default flash-lite sesuai instruksi)
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+// Konfigurasi Model (Default: gemini-1.5-flash, opsi lain: gemini-2.0-flash, gemini-1.5-pro)
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
 
 // System Instruction untuk Chatbot Hyundai Summarecon Bekasi
 // Karakter: Profesional, formal, lugas, santun, tidak friendly/casual/bercanda berlebihan

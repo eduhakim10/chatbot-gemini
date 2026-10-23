@@ -16,7 +16,7 @@
     "hacktiv8"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@google/genai": "^2.28.0",
     "@google/generative-ai": "^0.24.1",

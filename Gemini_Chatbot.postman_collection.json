@@ -32,7 +32,7 @@
           "host": ["{{baseUrl}}"],
           "path": ["api", "chat"]
         },
-        "description": "Endpoint utama materi Sesi 3: Mengirim conversation array ke Gemini flash-lite dan menerima respons profesional customer service Hyundai."
+        "description": "Endpoint utama materi Sesi 3: Mengirim conversation array ke Gemini 1.5 Flash dan menerima respons profesional customer service Hyundai."
       },
       "response": []
     },
