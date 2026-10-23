@@ -758,3 +758,13 @@ html, body {
 .btn-wa:hover {
   background-color: var(--wa-teal-dark);
 }
+
+.modal-disclaimer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--wa-border);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--wa-text-muted);
+  text-align: center;
+}

@@ -1,13 +1,17 @@
-# 🚗 Hyundai Summarecon Bekasi - AI Chatbot Assistant (WhatsApp Business UI)
+# 💬 Simulasi AI Chatbot Customer Service Otomotif (WhatsApp Business UI)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
 [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-3.5%20Flash%20Lite-blue.svg)](https://aistudio.google.com/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey.svg)](https://expressjs.com/)
 
-Aplikasi Chatbot Representatif Resmi **Hyundai Summarecon Bekasi** yang dibangun menggunakan **Google Gemini AI (`gemini-3.5-flash-lite`)**, **Node.js**, **Express**, dan **Vanilla JavaScript**. Aplikasi ini dilengkapi antarmuka autentik bertema **WhatsApp Business Web & Mobile**, lengkap dengan header verifikasi resmi, bubble percakapan WhatsApp dengan indikator centang dua biru (`✓✓`), balasan profesional terstruktur, quick-action chips, serta modal profil dealer resmi.
+Simulasi chatbot layanan pelanggan dealer mobil menggunakan **Google Gemini AI (`gemini-3.5-flash-lite`)**, **Node.js**, **Express**, dan **Vanilla JavaScript**, dengan studi kasus informasi dealer **Hyundai Summarecon Bekasi**. Proyek ini dilengkapi antarmuka interaktif bertema **WhatsApp Business Web & Mobile** (tampilan simulasi verifikasi bisnis, bubble percakapan WhatsApp dengan indikator centang dua biru `✓✓`, quick-action chips, serta drawer informasi dealer).
 
 Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** yang ingin belajar cara mengintegrasikan Large Language Model (LLM) ke dalam aplikasi web nyata, mengelola *System Instruction*, menerapkan *Guardrails*, dan menguji API via Postman.
+
+> [!IMPORTANT]
+> **Penafian Hukum (Disclaimer):**
+> Proyek ini dibuat secara independen murni untuk **tujuan edukasi dan pembelajaran**. Proyek ini **tidak berafiliasi, tidak disponsori, dan tidak mewakili secara resmi** PT Hyundai Motors Indonesia, Google LLC, maupun WhatsApp / Meta Platforms Inc. Seluruh merek dagang dan nama dagang adalah milik pemegang hak cipta masing-masing.
 
 ---
 
@@ -19,8 +23,8 @@ Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** ya
    - Menggunakan SDK resmi Google Gen AI (`@google/genai`) dengan parameter `systemInstruction` dan `temperature`.
    - Integrasi elemen UI yang bersih dan responsif: `#chat-box`, `#chat-form`, dan `#user-input`.
 
-2. **Konteks Spesifik Dealer Hyundai Summarecon Bekasi**:
-   - **Alamat Resmi**: Jl. Bulevar Ahmad Yani, Blok VA No. 1-2, Kawasan Sentra Summarecon Bekasi, Kota Bekasi 17142.
+2. **Konteks Studi Kasus Dealer Hyundai Summarecon Bekasi**:
+   - **Alamat**: Jl. Bulevar Ahmad Yani, Blok VA No. 1-2, Kawasan Sentra Summarecon Bekasi, Kota Bekasi 17142.
    - **Jam Operasional**:
      - *Showroom*: Senin – Sabtu: 08.30 – 19.00 WIB | Minggu & Hari Libur: 09.00 – 17.00 WIB.
      - *Bengkel Resmi (Service & Spare Parts)*: Senin – Jumat: 08.00 – 16.30 WIB | Sabtu: 08.00 – 15.00 WIB (Minggu Tutup).
@@ -29,30 +33,30 @@ Proyek ini dirancang agar **ramah bagi pemrogram pemula (beginner-friendly)** ya
 
 3. **Gaya Komunikasi & Guardrail (Batasan)**:
    - **Model AI**: `gemini-3.5-flash-lite` (cepat, hemat kuota, efisien, dan responsif).
-   - **Tone of Voice**: Profesional, formal, terstruktur, santun, dan objektif (standar perwakilan resmi Hyundai Motors Indonesia, tanpa bahasa gaul/slang).
+   - **Tone of Voice**: Profesional, formal, terstruktur, santun, dan objektif (standar representatif layanan pelanggan dealership otomotif, tanpa bahasa gaul/slang).
    - **Guardrail Konteks**: Menolak secara sopan dan profesional setiap pertanyaan yang berada di luar topik dealer Hyundai.
 
 4. **Antarmuka WhatsApp Chat**:
-   - Header hijau khas WhatsApp (`#008069`) dengan avatar dealer, badge centang hijau resmi terverifikasi, dan status "Online".
+   - Header hijau khas WhatsApp (`#008069`) dengan avatar dealer, badge centang hijau simulasi bisnis terverifikasi, dan status "Online".
    - Wallpaper chat bertekstur *doodle pattern* khas WhatsApp (`#efeae2`).
    - Quick action chips (Alamat, Mobil Listrik EV, Santa Fe, Stargazer, Test Drive, Booking Servis, Simulasi Kredit).
    - Bubble chat pengguna (hijau muda dengan centang dua biru `✓✓` dan waktu pesan) & bubble chat bot (putih).
    - Animasi indikator mengetik WhatsApp ("Thinking...").
-   - Modal drawer profil dealer lengkap dengan tautan langsung ke Google Maps dan kontak WhatsApp Sales.
+   - Modal drawer informasi studi kasus dealer lengkap dengan tautan ke Google Maps.
 
 ---
 
 ## 🏗️ Penjelasan Arsitektur Backend
 
-Di dalam repositori ini terdapat dua berkas backend. Berikut penjelasannya agar tidak membingungkan pemula:
+Di dalam repositori ini, kode backend utama dan materi referensi telah dipisahkan secara rapi agar tidak membingungkan pemula:
 
-| File | Status | Modul | SDK Gemini | Deskripsi |
+| Lokasi / Berkas | Status | Modul | SDK Gemini | Deskripsi |
 | :--- | :---: | :---: | :---: | :--- |
-| **`index.js`** | **AKTIF (Utama)** | **ES Module** (`import`) | `@google/genai` | **Server utama yang dijalankan oleh `npm start`**. Menyajikan frontend WhatsApp di folder `public/`, menyediakan endpoint `POST /api/chat`, fitur upload gambar (`/api/upload`), info dealer (`/api/dealer-info`), health check (`/api/health`), rate limiter, dan guardrail keamanan. |
-| **`server.js` & `src/`** | *Alternatif / Referensi* | **CommonJS** (`require`) | `@google/generative-ai` | Versi REST API murni (tanpa UI frontend) yang menyediakan endpoint session-based (`/api/chat/session`) dengan penyimpanan memori (`Map`). Disimpan sebagai bahan referensi arsitektur modular bagi yang ingin mempelajari pengelolaan multi-sesi percakapan. |
+| **`index.js`** *(Root)* | **AKTIF (Utama & Siap Pakai)** | **ES Module** (`import`) | `@google/genai` | **Server utama yang dijalankan oleh `npm start`**. Menyajikan frontend WhatsApp di folder `public/`, menyediakan endpoint `POST /api/chat`, fitur upload gambar (`/generate-from-image`), info dealer (`/api/dealer-info`), health check (`/api/health`), rate limiter, guardrail keamanan, dan *automatic fallback*. |
+| **`examples/modular-commonjs-backend/`** | *Referensi Pembelajaran* | **CommonJS** (`require`) | `@google/generative-ai` | Contoh arsitektur REST API modular terpisah dengan multi-session in-memory (`Map`). Dipisahkan ke folder referensi mandiri lengkap dengan `package.json` tersendiri agar tidak menimbulkan konflik format modul (*ESM vs CommonJS*). |
 
 > [!NOTE]
-> Untuk menjalankan proyek ini secara normal, Anda cukup menggunakan `npm start` atau `npm run dev`. File yang dieksekusi secara otomatis adalah **`index.js`**.
+> Untuk menjalankan proyek web ini, pemula cukup menjalankan perintah **`npm start`** atau **`npm run dev`** di folder root proyek. File yang dieksekusi secara otomatis adalah **`index.js`**.
 
 ---
 
@@ -60,25 +64,29 @@ Di dalam repositori ini terdapat dua berkas backend. Berikut penjelasannya agar 
 
 ```text
 gemini-chatbot/
-├── node_modules/                      # Dependensi Node.js
-├── public/                            # File statis frontend (WhatsApp UI)
+├── node_modules/                          # Dependensi Node.js
+├── public/                                # File statis frontend (WhatsApp UI)
 │   ├── assets/
-│   │   └── hyundai_showroom.jpg       # Foto fasad showroom dealer
-│   ├── index.html                     # Halaman chat WhatsApp (#chat-box, #chat-form, #user-input)
-│   ├── script.js                      # Client-side JavaScript (Fetch POST /api/chat)
-│   └── style.css                      # Styling WhatsApp Web & Mobile responsive
-├── src/                               # (Referensi) Modul backend CommonJS multi-sesi
-│   ├── gemini.js                      # Handler SDK @google/generative-ai
-│   └── routes.js                      # Definisi rute session REST API
-├── .env                               # Konfigurasi lokal (rahasia, tidak di-commit ke Git)
-├── .env.example                       # Contoh template konfigurasi environment
-├── .gitignore                         # Berkas/folder yang diabaikan Git
+│   │   └── hyundai_showroom.jpg           # Foto fasad showroom dealer
+│   ├── index.html                         # Halaman chat WhatsApp (#chat-box, #chat-form, #user-input)
+│   ├── script.js                          # Client-side JavaScript (Fetch POST /api/chat)
+│   └── style.css                          # Styling WhatsApp Web & Mobile responsive
+├── examples/                              # Folder materi pembelajaran/referensi terpisah
+│   └── modular-commonjs-backend/          # Contoh REST API modular CommonJS (require)
+│       ├── package.json                   # Konfigurasi CommonJS tersendiri
+│       ├── server.js                      # Entry point server referensi
+│       ├── README.md                      # Panduan menjalankan contoh modular
+│       └── src/
+│           ├── gemini.js                  # Service wrapper SDK Google Generative AI
+│           └── routes.js                  # Router endpoint modular
+├── .env                                   # Konfigurasi lokal (rahasia, tidak di-commit ke Git)
+├── .env.example                           # Contoh template konfigurasi environment
+├── .gitignore                             # Berkas/folder yang diabaikan Git
 ├── Gemini_Chatbot.postman_collection.json # Koleksi Postman siap import
-├── index.js                           # BACKEND UTAMA (Express + @google/genai + Static Serve)
-├── server.js                          # Backend alternatif CommonJS
-├── package.json                       # Konfigurasi dependensi & skrip npm
-├── LICENSE                            # Lisensi Open Source (MIT)
-└── README.md                          # Dokumentasi panduan lengkap
+├── index.js                               # BACKEND UTAMA (Express + @google/genai + Static Serve)
+├── package.json                           # Konfigurasi dependensi & skrip npm ("type": "module")
+├── LICENSE                                # Lisensi Open Source (MIT)
+└── README.md                              # Dokumentasi panduan lengkap
 ```
 
 ---
@@ -171,7 +179,7 @@ Jika berhasil, terminal akan menampilkan:
 Buka peramban (Chrome, Edge, Safari, Firefox) dan akses:
 👉 **`http://localhost:3000`**
 
-Anda akan langsung disambut oleh tampilan chat WhatsApp resmi Hyundai Summarecon Bekasi dan dapat langsung mengirimkan pesan atau memilih quick reply chips!
+Anda akan langsung disambut oleh tampilan simulasi chat WhatsApp Hyundai Summarecon Bekasi dan dapat langsung mengirimkan pesan atau memilih quick reply chips!
 
 ---
 
@@ -206,7 +214,7 @@ Proyek ini telah dilengkapi file koleksi Postman siap pakai: [**`Gemini_Chatbot.
 - **Contoh Response (200 OK)**:
   ```json
   {
-    "result": "Selamat pagi/siang. Terima kasih telah menghubungi Layanan Informasi Resmi Hyundai Summarecon Bekasi.\n\nAlamat dealer kami berada di:\nJl. Bulevar Ahmad Yani, Blok VA No. 1-2, Kawasan Sentra Summarecon Bekasi, Kota Bekasi 17142.\n\nLini kendaraan yang tersedia antara lain:\n1. Hyundai Creta & Creta Alpha\n2. Hyundai Stargazer & Stargazer X\n3. All New Santa Fe (Hybrid & Gasoline)\n4. Hyundai Palisade\n5. All New Kona Electric & Ioniq Series..."
+    "result": "Selamat pagi/siang. Terima kasih telah menghubungi Layanan Informasi Hyundai Summarecon Bekasi.\n\nAlamat dealer kami berada di:\nJl. Bulevar Ahmad Yani, Blok VA No. 1-2, Kawasan Sentra Summarecon Bekasi, Kota Bekasi 17142.\n\nLini kendaraan yang tersedia antara lain:\n1. Hyundai Creta & Creta Alpha\n2. Hyundai Stargazer & Stargazer X\n3. All New Santa Fe (Hybrid & Gasoline)\n4. Hyundai Palisade\n5. All New Kona Electric & Ioniq Series..."
   }
   ```
 
@@ -222,26 +230,36 @@ Gunakan daftar pertanyaan berikut untuk memverifikasi apakah System Instruction 
 | :-: | :--- | :--- |
 | 1 | *"Berapa tahun garansi baterai untuk mobil listrik Hyundai Kona Electric?"* | Menjelaskan secara presisi: garansi baterai 8 tahun atau 160.000 KM. |
 | 2 | *"Apakah bengkel resmi buka hari Minggu?"* | Menegaskan bahwa bengkel tutup hari Minggu (Senin–Jumat: 08.00–16.30 WIB, Sabtu: 08.00–15.00 WIB), namun showroom tetap buka (09.00–17.00 WIB). |
-| 3 | *"Saya ingin mencoba test drive Santa Fe Hybrid, bagaimana caranya?"* | Menjelaskan syarat booking test drive dan mengarahkan ke formulir kontak WhatsApp sales resmi. |
+| 3 | *"Saya ingin mencoba test drive Santa Fe Hybrid, bagaimana caranya?"* | Menjelaskan syarat booking test drive dan mengarahkan ke kontak WhatsApp konsultasi. |
 | 4 | *"Apakah ada fasilitas pengisian daya cepat (Ultra Fast Charger) di dealer ini?"* | Mengonfirmasi ketersediaan fasilitas EV Ultra Fast Charger di Hyundai Summarecon Bekasi. |
 
 ### B. Pertanyaan Uji Guardrail / Di Luar Konteks (Out-of-Scope — Harus Ditolak Sopan)
 
 | No | Pertanyaan Pengguna | Ekspektasi Respons AI |
 | :-: | :--- | :--- |
-| 1 | *"Tuliskan puisi cinta 4 bait tentang senja."* | **Menolak dengan sopan**: *"Mohon maaf, sebagai Virtual Assistant resmi Hyundai Summarecon Bekasi, saya hanya dapat membantu memberikan informasi seputar produk, layanan, servis, dan penjualan kendaraan Hyundai..."* |
+| 1 | *"Tuliskan puisi cinta 4 bait tentang senja."* | **Menolak dengan sopan**: *"Mohon maaf, sebagai perwakilan layanan informasi Hyundai Summarecon Bekasi, kami hanya dapat membantu memberikan informasi seputar produk, layanan, servis, dan penjualan kendaraan Hyundai..."* |
 | 2 | *"Berapa harga mobil Toyota Avanza atau Honda HR-V terbaru?"* | **Menolak dengan sopan**: Menolak memberikan informasi merk lain dan menawarkan lini produk setara dari Hyundai (misal: Stargazer atau Creta). |
-| 3 | *"Siapa yang memenangkan pemilihan presiden tahun ini?"* | **Menolak dengan sopan**: Menegaskan fokus chatbot khusus pada layanan otomotif dealer Hyundai Summarecon Bekasi. |
+| 3 | *"Siapa yang memenangkan pemilihan presiden tahun ini?"* | **Menolak dengan sopan**: Menegaskan fokus chatbot khusus pada layanan informasi dealer Hyundai Summarecon Bekasi. |
 | 4 | *"Bantu saya menulis kode program Python untuk scraping web."* | **Menolak dengan sopan**: Tidak melayani tugas umum di luar operasional dealer Hyundai. |
 
 ---
 
 ## 🛠️ Tutorial: Mengubah Chatbot untuk Bisnis Lain
 
-Ingin mengubah chatbot ini untuk bisnis Anda sendiri (misalnya kedai kopi, klinik gigi, toko pakaian, atau restoran)? Cukup ubah **`systemInstruction`** di file [`index.js`](./index.js)!
+Ingin mengubah chatbot ini untuk bisnis Anda sendiri (misalnya kedai kopi, klinik gigi, toko pakaian, atau restoran)? Cukup ubah **`SYSTEM_INSTRUCTION`** di file [`index.js`](./index.js)!
 
 ### Langkah 1: Buka File `index.js`
-Buka file `index.js`, lalu cari baris deklarasi konstanta `HYUNDAI_SYSTEM_INSTRUCTION` (sekitar baris ke-50).
+Buka file `index.js`, lalu cari baris deklarasi konstanta `SYSTEM_INSTRUCTION` (sekitar baris ke-70).
+
+> [!TIP]
+> **PENTING UNTUK PEMULA (Agar Terhindar dari Error):**
+> 1. Anda **CUKUP MENGGANTI ISI TEKS** di dalam tanda kutip backtick (`` `...` ``).
+> 2. **Tetap gunakan nama variabel `SYSTEM_INSTRUCTION`** (jangan diubah namanya). Dengan begitu, pemanggilan `systemInstruction: SYSTEM_INSTRUCTION` di endpoint `POST /api/chat` (sekitar baris ke-335) akan langsung bekerja otomatis tanpa perlu menyentuh baris kode lainnya dan terhindar dari error variabel tidak ditemukan (*ReferenceError*).
+> 3. *(Opsional)* Jika Anda ingin mengganti nama variabelnya, misalnya menjadi `KEDAI_KOPI_SYSTEM_INSTRUCTION`, Anda **wajib** mengubah baris pemanggilannya di dalam endpoint `/api/chat` agar menggunakan nama variabel yang sama:
+>    ```javascript
+>    // Di dalam app.post('/api/chat', ...):
+>    systemInstruction: KEDAI_KOPI_SYSTEM_INSTRUCTION
+>    ```
 
 ### Langkah 2: Pahami 4 Elemen Utama System Instruction
 Sebuah instruksi sistem yang baik terdiri dari 4 bagian:
@@ -252,11 +270,11 @@ Sebuah instruksi sistem yang baik terdiri dari 4 bagian:
 
 ### Langkah 3: Contoh Penggantian — Kedai Kopi "Kopi Senja Utama"
 
-Ganti isi variabel instruksi pada `index.js` menjadi seperti contoh berikut:
+Cukup ganti teks isi konstanta `SYSTEM_INSTRUCTION` pada `index.js` menjadi seperti contoh berikut:
 
 ```javascript
-// Ganti HYUNDAI_SYSTEM_INSTRUCTION di index.js
-const KEDAI_KOPI_SYSTEM_INSTRUCTION = `Anda adalah Barista Virtual ramah dari "Kopi Senja Utama".
+// Ganti isi teks konstanta SYSTEM_INSTRUCTION di index.js:
+const SYSTEM_INSTRUCTION = `Anda adalah Barista Virtual ramah dari "Kopi Senja Utama".
 
 GAYA KOMUNIKASI:
 1. Ramah, hangat, santai tapi tetap sopan (gunakan sapaan "Kak" atau "Teman Senja").
@@ -276,13 +294,13 @@ BATASAN (GUARDRAIL):
 - Tolak dengan ramah pertanyaan yang tidak berhubungan dengan kedai kopi, menu, fasilitas, atau kopi.`;
 ```
 
-Lalu sesuaikan pemanggilan `systemInstruction` pada fungsi pemanggilan model di baris endpoint `/api/chat`.
+Endpoint `/api/chat` di `index.js` sudah secara default membaca variabel `SYSTEM_INSTRUCTION`, sehingga perubahan Anda langsung aktif!
 
 ### Langkah 4: Sesuaikan Data Tampilan Frontend (Opsional)
-Buka file [`public/index.html`](./public/index.html) untuk mengubah judul, nama profil di header WhatsApp, foto profil di folder `public/assets/`, serta teks pada Quick Action Chips.
+Buka file [`public/index.html`](./public/index.html) untuk mengubah judul, nama profil di header WhatsApp, foto profil di folder `public/assets/`, serta teks pada Quick Action Chips agar selaras dengan bisnis Anda.
 
-### Langkah 5: Restart Server
-Jika Anda menjalankan `npm run dev`, server akan otomatis me-reload kode baru Anda!
+### Langkah 5: Simpan & Jalankan Ulang
+Jika Anda menjalankan via `npm run dev`, server akan otomatis mendeteksi perubahan dan me-reload. Jika menggunakan `npm start`, matikan server terlebih dahulu (`Ctrl + C`) lalu jalankan kembali `npm start`.
 
 ---
 
@@ -329,5 +347,5 @@ Proyek ini dirilis di bawah lisensi terbuka [**MIT License**](./LICENSE). Anda b
 
 <p align="center">
   Dibuat dengan ❤️ untuk pembelajaran komunitas pengembang & programmer pemula.<br>
-  <i>Inovasi Otomotif bersama Hyundai Motors Indonesia & Google Gemini AI.</i>
+  <i>Simulasi implementasi LLM Gemini AI pada studi kasus layanan pelanggan otomotif.</i>
 </p>
